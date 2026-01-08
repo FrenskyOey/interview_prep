@@ -15,7 +15,7 @@ class ReverseStringTest {
     )
 
     @Test
-    fun testTemplate() {
+    fun testReverseString() {
         // 3. Define scenarios
         val testCases = listOf(
             TestCase(

@@ -16,7 +16,7 @@ class BestStockTest {
     )
 
     @Test
-    fun testTemplate() {
+    fun testBestStock() {
         // 3. Define scenarios
         val testCases = listOf(
             TestCase(
