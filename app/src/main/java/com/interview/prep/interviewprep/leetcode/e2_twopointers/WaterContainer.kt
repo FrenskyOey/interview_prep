@@ -51,7 +51,7 @@ class WaterContainer {
      * Ini caranya bisa pake two sum dimana kita pakai pointer kiri dan kanan, nanti si pointernya bakal maju dari perbandingan tinggi
      * kalau tinggi kanan lebih pendek dari kiri maka pointer kanan mundur
      * kalau tinggi kiri lebih pendek maka kiri yang maju
-     * nanti luasnya bisa di cari lewat tinggi terpendek * jarak pointer kiri dan pointer kanan (pointer kanan - pointer kiri + 1)
+     * nanti luasnya bisa di cari lewat tinggi terpendek * jarak pointer kiri dan pointer kanan (pointer kanan - pointer kiri)
      * simpen juga current maksimum.. kalau current maksimum lebih kecil dari luas yang di dapat ya tinggal diupdate valuenya
      *
      */
