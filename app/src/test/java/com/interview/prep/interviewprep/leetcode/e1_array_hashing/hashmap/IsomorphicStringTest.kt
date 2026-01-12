@@ -26,7 +26,6 @@ class IsomorphicStringTest {
                 expected = false,
                 message = "Case 4"
             ),
-            /*
             TestCase(
                 input = "egg",
                 input2 = "add",
@@ -44,7 +43,7 @@ class IsomorphicStringTest {
                 input2 = "title",
                 expected = true,
                 message = "Case 3"
-            )*/
+            )
         )
 
         // 4. Run the loop
