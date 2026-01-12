@@ -106,7 +106,7 @@ class CountSubstringChar {
             }
             hashmap[currentChars] = 1
             val windowSize = pointerRight - pointerLeft + 1
-            // rumus counter adalah currentCOunter + panjang string yang diproses which is window size
+            // rumus counter adalah currentCounter + panjang string yang diproses which is window size
             currentCounter = currentCounter + windowSize
             pointerRight = pointerRight + 1
         }
