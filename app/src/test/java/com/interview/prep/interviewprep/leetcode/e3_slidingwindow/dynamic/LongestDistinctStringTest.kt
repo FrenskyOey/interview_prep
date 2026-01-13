@@ -3,9 +3,9 @@ package com.interview.prep.interviewprep.leetcode.e3_slidingwindow.dynamic
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class CountSubstringCharTest {
+class LongestDistinctStringTest {
     // 1. Instantiate the class to test
-    private val solution = CountSubstringChar()
+    private val solution = LongestDistinctString()
 
     // 2. Define the Test Case data structure
     data class TestCase(
@@ -18,25 +18,10 @@ class CountSubstringCharTest {
     fun testCountSubstringChar() {
         // 3. Define scenarios
         val testCases = listOf(
-            TestCase("abc", 6, "Semua unik: a, b, c, ab, bc, abc"),
+            TestCase("abcabcbb", 3, "Case 1"),
+            TestCase("bbbbb", 1, "Case 2"),
+            TestCase("pwwkew", 3, "Case 3"),
 
-            // 2. Ada Karakter Berulang (Case Contoh)
-            TestCase("abac", 8, "Berulang di awal: a, b, a, c, ab, ba, ac, bac"),
-
-            // 3. Semua Karakter Sama
-            TestCase("aaaa", 4, "Hanya substring panjang 1 yang valid: a, a, a, a"),
-
-            // 4. Karakter Berulang Berdampingan
-            TestCase("abccde", 12, "Ada double di tengah: a, b, c, c, d, e, ab, bc, cd, de, abc, cde"),
-
-            // 5. String Kosong / Satu Karakter
-            TestCase("z", 1, "Hanya satu karakter"),
-
-            // 6. Karakter Berulang di Ujung
-            TestCase("aa", 2, "Dua karakter sama"),
-
-            // 7. Pola Zig-zag
-            TestCase("ababa", 9, "Pola ab-ba berulang")
         )
 
         // 4. Run the loop
