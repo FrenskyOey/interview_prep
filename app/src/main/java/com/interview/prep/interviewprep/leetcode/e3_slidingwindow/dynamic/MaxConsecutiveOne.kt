@@ -90,23 +90,9 @@ class MaxConsecutiveOne {
         var testData : IntArray = nums.copyOf()
 
         for(data in testData){
-            if(k == 0){
-                if(data == 0){
-                    currentLength = 0
-                }else{
-                    currentLength += 1
-                }
-
-                if(maxLength < currentLength){
-                    maxLength = currentLength
-                }
-                continue
-            }
-
             if(data == 0){
-                testData[end] = -1
                 counterK = counterK - 1
-                while(counterK < 0 && start < end){
+                while(counterK < 0){
                    val startValue = testData[start]
                     start = start + 1
                    if(startValue == 1){
@@ -124,6 +110,32 @@ class MaxConsecutiveOne {
             end = end + 1
         }
 
+        return maxLength
+    }
+
+
+    fun execute2(nums: IntArray, k: Int): Int {
+        var currentZero = 0
+        var start = 0
+        var end = 0
+        var maxLength = 0
+
+        for(data in nums){
+            if(data == 0){
+                currentZero = currentZero + 1
+            }
+
+            while(currentZero > k){
+                val startValue = nums[start]
+                if(startValue == 0){
+                    currentZero = currentZero - 1
+                }
+                start = start + 1
+            }
+            println("start : $start, end : $end, currentZer : $currentZero")
+            maxLength = maxOf(maxLength, end - start + 1)
+            end = end +1
+        }
         return maxLength
     }
 
