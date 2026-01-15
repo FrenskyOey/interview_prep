@@ -47,7 +47,7 @@ class LargestRectangle {
      * The largest rectangle is shown in the red area, which has an area = 10 units.
      *
      * untuk resolve ini cara paling enak itu pakai monotonic stack
-     * jadi di dalam stacknya kita bakal menyimpan indexnya mulai dari index 1 sata index n
+     * jadi di dalam stacknya kita bakal menyimpan indexnya mulai dari index 0 sata index n-1
      * aturan monotonicnya adalah ketika nilai baru yang disimpan lebih kecil dari nilai terakhir,
      * maka kita harus mencari nilai luas kotak terakhir dengan cara nilai height * jarak index kotak terakhir sama kotak target kita
      * karena di sini kita mencari kemungkinan width terpanjang dari suatu histogram yang bakal patah kalau histogram berikutnya itu lebih pendek dari tingginya dia
@@ -58,35 +58,42 @@ class LargestRectangle {
      * currentMax = 0
      * stack []
      *
-     * i1 insert 2 -> stack[1] -> menyimpan nilai index
+     * i1 insert 2 -> stack[{0|2}] -> menyimpan nilai index dan height
      * currentMax = 0
      *
      * i2 insert 1 lebih kecil dari 2.. terjadi breaking point sehingga kita mulai hitung tinggi maksimum si data 2
-     * luas maksimumnya adalah = 2 * (index(1)2-1(index(2))) = 2*1 = 2
-     * stack[1] -> kita ambil nilai terujung dari 1 karena 2 juga bagian dari 1
+     * luas maksimumnya adalah = 2 * (index(1)1-0(index(2))) = 2*1 = 2
+     * nah untuk index dari 1 kita buat jadi 0, ini karena kita mencari width terpanjang dimana 1 itu bagian dari 2
+     * makanya index height 2 menjadi index height 1
+     * stack[{0|1}]
      * currentMax = 2
      *
      * i3 insert 5 -> aman karena 5>2
-     * stack[2,3]
+     * stack[{0|1},{2|5}]
      * currentMax = 2
      *
      * i4 insert 6 -> aman karena 6>5
-     * stack[2,3,4]
+     * stack[{0|1},{2|5},{3|6}]
      * currentMax = 2
      *
      * i5 insert 2 -> breaking karena 2<6
-     * terjadi pop sampai index 2
-     * stack[2,3]
-     * curentMax = 6 (dari 6 * (5-4))
-     * stack[2]
-     * currentMax = 10 (dari 5 * (5-3))
-     * stack[2,5]
-     *
-     * hashmap {2:1,5:2}
+     * terjadi pop sampai height 5, di sini kita akan simpan index 5 sebagai bagian height 2, jadi bukan simpan 4 melainkan 2
+     * stack[{0|1},{2|5}]
+     * curentMax = 6 (dari 6 * (4-3))
+
+     * stack[{0|1}]
+     * currentMax = 10 (dari 5 * (4-2))
+     * stack[{0|1},{2|2}]
      *
      * i6 insert 3 -> aman karena 3 > 2
-     * stack [2,5,6]
+     * stack[{0|1},{2|2},{5|3}]
      *
+     * i7 habis... pas habis kita coba cari luas dari sisa stack yang masih tersisa dengan rumus
+     * (i7 - index) * height
+     * (6 - 5) * 3 = 3
+     * (6 - 2) * 2 = 8
+     * (6 - 0) * 1 = 6
+     * currentMax = 10
      *
      * Complexity Analysis: O(n)
      */

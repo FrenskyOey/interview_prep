@@ -63,10 +63,6 @@ class LongestValidParantheses {
      *
      * HASIL AKHIR: 4
      *
-     *
-     *
-     * Contoh Soal:
-     *
      */
 
 
