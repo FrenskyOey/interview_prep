@@ -57,8 +57,6 @@ class FindFirstAndLast {
      *
      * find last sama lah pokoknya
      *
-     *
-     *
      * Algorithm
      *
      * Complexity Analysis:
@@ -80,10 +78,12 @@ class FindFirstAndLast {
 
         // find first
         while(isFound == false && startIndex <= lastIndex){
+            // eumus midle ini harus apa diluar kepala
             var midle = startIndex + ((lastIndex - startIndex))/2
             var values = nums[midle]
 
             if(values == target){
+                // in case dia ada di posisi paling awal, kalau begitu langsung aja kasih index 0 sebagai jawaban
                 if(midle == 0){
                     isFound = true
                     first = midle
@@ -113,6 +113,7 @@ class FindFirstAndLast {
             var values =  nums[midle]
 
             if(values == target){
+                // in case dia ada di posisi paling akhir, kalau begitu langsung aja kasih index size-1 sebagai jawaban
                 if(midle == nums.size-1){
                     last = midle
                     isFound = true
