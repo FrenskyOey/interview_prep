@@ -44,6 +44,7 @@ class FindFirstAndLastTest {
         for (test in testCases) {
             val actual = solution.execute(test.input,test.target)
             println(" Test : ${test.input.contentToString()} | result : ${actual.joinToString(",")} | expected : ${test.expected.joinToString(",")}")
+            println(" Test : ${test.input.contentToString()} | result : ${actual.joinToString(",")} | expected : ${test.expected.joinToString(",")}")
             assertEquals("Failed on: ${test.message}",test.expected.joinToString(","), actual.joinToString(","))
         }
     }

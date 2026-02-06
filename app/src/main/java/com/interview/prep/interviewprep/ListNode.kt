@@ -26,5 +26,6 @@ fun IntArray.toListNode(): ListNode<Int>? {
         current.next = ListNode(this[i])
         current = current.next!!
     }
+
     return head
 }
